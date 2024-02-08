@@ -53,6 +53,7 @@ var testDefaults = config.Configuration{
 	DbUser:                   "postgres",
 	DbPassword:               "postgres",
 	DbDatabase:               "postgres",
+	DbDatabaseSchema:         "public",
 	DbTLSMode:                "disable",
 	DbTLSCACert:              "",
 	DbMaxOpenConnsMultiplier: 8,

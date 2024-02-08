@@ -379,6 +379,12 @@ func deriveBunDBPGOptions() (*pgx.ConnConfig, error) {
 		return nil, errors.New("no database set")
 	}
 
+	// validate database schema
+	databaseSchema := config.GetDbDatabaseSchema()
+	if databaseSchema == "" {
+		return nil, errors.New("no database schema set")
+	}
+
 	var tlsConfig *tls.Config
 	switch config.GetDbTLSMode() {
 	case "", "disable":

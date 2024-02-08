@@ -47,6 +47,7 @@ var Defaults = Configuration{
 	DbUser:                   "",
 	DbPassword:               "",
 	DbDatabase:               "gotosocial",
+	DbDatabaseSchema:         "public",
 	DbTLSMode:                "disable",
 	DbTLSCACert:              "",
 	DbMaxOpenConnsMultiplier: 8,

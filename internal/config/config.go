@@ -66,6 +66,7 @@ type Configuration struct {
 	DbUser                   string        `name:"db-user" usage:"Database username"`
 	DbPassword               string        `name:"db-password" usage:"Database password"`
 	DbDatabase               string        `name:"db-database" usage:"Database name"`
+	DbDatabaseSchema         string        `name:"db-database-schema" usage:"Database schema name"`
 	DbTLSMode                string        `name:"db-tls-mode" usage:"Database tls mode"`
 	DbTLSCACert              string        `name:"db-tls-ca-cert" usage:"Path to CA cert for db tls connection"`
 	DbMaxOpenConnsMultiplier int           `name:"db-max-open-conns-multiplier" usage:"Multiplier to use per cpu for max open database connections. 0 or less is normalized to 1."`

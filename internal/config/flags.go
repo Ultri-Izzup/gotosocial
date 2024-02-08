@@ -49,6 +49,7 @@ func (s *ConfigState) AddGlobalFlags(cmd *cobra.Command) {
 		cmd.PersistentFlags().String(DbUserFlag(), cfg.DbUser, fieldtag("DbUser", "usage"))
 		cmd.PersistentFlags().String(DbPasswordFlag(), cfg.DbPassword, fieldtag("DbPassword", "usage"))
 		cmd.PersistentFlags().String(DbDatabaseFlag(), cfg.DbDatabase, fieldtag("DbDatabase", "usage"))
+		cmd.PersistentFlags().String(DbDatabaseSchemaFlag(), cfg.DbDatabaseSchema, fieldtag("DbDatabaseSchema", "usage"))
 		cmd.PersistentFlags().String(DbTLSModeFlag(), cfg.DbTLSMode, fieldtag("DbTLSMode", "usage"))
 		cmd.PersistentFlags().String(DbTLSCACertFlag(), cfg.DbTLSCACert, fieldtag("DbTLSCACert", "usage"))
 		cmd.PersistentFlags().Int(DbMaxOpenConnsMultiplierFlag(), cfg.DbMaxOpenConnsMultiplier, fieldtag("DbMaxOpenConnsMultiplier", "usage"))

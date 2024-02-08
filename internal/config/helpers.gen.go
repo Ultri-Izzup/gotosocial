@@ -508,11 +508,27 @@ func (st *ConfigState) GetDbDatabase() (v string) {
 	return
 }
 
+// GetDbDatabaseSchema safely fetches the Configuration value for state's 'DbDatabaseSchema' field
+func (st *ConfigState) GetDbDatabaseSchema() (v string) {
+	st.mutex.RLock()
+	v = st.config.DbDatabaseSchema
+	st.mutex.RUnlock()
+	return
+}
+
 // SetDbDatabase safely sets the Configuration value for state's 'DbDatabase' field
 func (st *ConfigState) SetDbDatabase(v string) {
 	st.mutex.Lock()
 	defer st.mutex.Unlock()
 	st.config.DbDatabase = v
+	st.reloadToViper()
+}
+
+// SetDbDatabaseSchema safely sets the Configuration value for state's 'DbDatabaseSchema' field
+func (st *ConfigState) SetDbDatabaseSchema(v string) {
+	st.mutex.Lock()
+	defer st.mutex.Unlock()
+	st.config.DbDatabaseSchema = v
 	st.reloadToViper()
 }
 
@@ -524,6 +540,16 @@ func GetDbDatabase() string { return global.GetDbDatabase() }
 
 // SetDbDatabase safely sets the value for global configuration 'DbDatabase' field
 func SetDbDatabase(v string) { global.SetDbDatabase(v) }
+
+// DbDatabaseSchemaFlag returns the flag name for the 'DbDatabaseSchema' field
+func DbDatabaseSchemaFlag() string { return "db-database-schema" }
+
+// GetDbDatabaseSchema safely fetches the value for global configuration 'DbDatabaseSchema' field
+func GetDbDatabaseSchema() string { return global.GetDbDatabaseSchema() }
+
+// SetDbDatabaseSchema safely sets the value for global configuration 'DbDatabaseSchema' field
+func SetDbDatabaseSchema(v string) { global.SetDbDatabaseSchema(v) }
+
 
 // GetDbTLSMode safely fetches the Configuration value for state's 'DbTLSMode' field
 func (st *ConfigState) GetDbTLSMode() (v string) {
